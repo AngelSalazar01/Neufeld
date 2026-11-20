@@ -1,0 +1,10 @@
+# Cabeceras de seguridad de Netlify (auditoría web 2026-11-19, I-7). GitHub Pages (sitio de pruebas) ignora este archivo.
+# CSP: la app propia, Supabase (API, Storage, Realtime y Edge Functions en *.supabase.co) y Google Maps
+# (lista de orígenes que documenta Google para la API de Maps JavaScript). Mantine escribe estilos en línea:
+# style-src necesita 'unsafe-inline'. Los íconos del mapa son data: SVG y la vista previa de fotos usa blob:.
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-eval' blob: https://*.googleapis.com https://*.gstatic.com *.google.com https://*.ggpht.com *.googleusercontent.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://*.supabase.co https://*.googleapis.com https://*.gstatic.com *.google.com *.googleusercontent.com https://*.ggpht.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.googleapis.com *.google.com https://*.gstatic.com data: blob:; media-src 'self'; worker-src 'self' blob:; frame-src *.google.com; manifest-src 'self'
